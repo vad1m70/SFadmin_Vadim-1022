@@ -3,3 +3,4 @@ playbooks/hosts
 # Ignore pubkey
 files/id_rsa.pub
 
+
