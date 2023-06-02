@@ -1,0 +1,6 @@
+# Ignore inventory file for ansible: hosts
+playbooks/hosts
+# Ignore pubkey
+files/id_rsa.pub
+
+

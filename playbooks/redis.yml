@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: Install redis on RHEL
+    yum:
+      name=redis
+      state=latest
+    when:
+        ansible_os_family == "RedHat"
+    notify:
+      redis systemd
+  - name: Install redis on Debian
+    apt:
+      name=redis
+      state=latest
+     when:
+       ansible_os_family == "Debian"
+     notify:
+       redis systemd
+  handlers:
+  - name: redis systemd
+    systemd:
+      name: redis.service
+      enabled: yes
+      state: started
